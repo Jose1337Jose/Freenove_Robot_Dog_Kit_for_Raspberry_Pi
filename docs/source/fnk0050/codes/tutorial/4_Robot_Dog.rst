@@ -16,7 +16,7 @@ Server
 
 The server runs on the Raspberry Pi. It sends the camera data and ultrasonic module data to the client, and receive commands from client.
 
-**The code in the Server folder is used as an example, or if you has a Raspberry Pi5, refer to the code in the server-PI5 folder.**
+**The code in the Server folder is used as an example.**
 
 Code
 ================================================================
