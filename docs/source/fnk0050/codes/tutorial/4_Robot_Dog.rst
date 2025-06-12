@@ -323,7 +323,7 @@ You can refer to this video: https://youtu.be/l2v9PdwQdvY
 
 .. raw:: html
 
-   <iframe height="500" width="690" src="https://www.youtube.com/embed/l2v9PdwQdvY" frameborder="0" allowfullscreen></iframe>
+   <iframe style="display: block; margin: 0 auto;" height="421.875" width="750" src="https://www.youtube.com/embed/l2v9PdwQdvY" frameborder="0" allowfullscreen></iframe>
 
 .. note::
     
@@ -697,7 +697,7 @@ You can refer to this video: https://youtu.be/lv9PdwQdvY2
 
 .. raw:: html
 
-   <iframe height="500" width="690" src="https://www.youtube.com/embed/lv9PdwQdvY2" frameborder="0" allowfullscreen></iframe>
+   <iframe style="display: block; margin: 0 auto;" height="421.875" width="750" src="https://www.youtube.com/embed/lv9PdwQdvY2" frameborder="0" allowfullscreen></iframe>
 
 Calibrate the robot.
 

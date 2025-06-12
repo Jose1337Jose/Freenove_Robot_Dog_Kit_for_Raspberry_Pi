@@ -97,19 +97,26 @@ Optional Components
 Under normal circumstances, there are two ways to login to Raspberry Pi: 
 
 1) Using a stand-alone monitor. 
+
 2) Using a remote desktop or laptop computer monitor “sharing” the PC monitor with your RPi.
 
 Required Accessories for Monitor
 ================================================================
 
 If you choose to use an independent monitor, mouse and keyboard, you also need the following accessories:
+
 1. A display with a HDMI interface
+
 2. A Mouse and a Keyboard with an USB interface
 
 As to Pi Zero and Pi Zero W, you also need the following accessories:
+
 1.	A Mini-HDMI to HDMI Adapter and Cable.
+
 2.	A Micro-USB to USB-A Adapter and Cable (Micro USB OTG Cable). 
+
 3.	A USB HUB.
+
 4.	USB to Ethernet Interface or USB Wi-Fi receiver. 
 
 For different Raspberry Pi Modules, the optional items may vary slightly but they all aim to convert the interfaces to Raspberry Pi standards.
@@ -150,9 +157,18 @@ Required Accessories for Remote Desktop
 Raspberry Pi OS
 ****************************************************************
 
-.. note:: 
-    | **Without Screen - Use Raspberry Pi - under Windows PC:** https://youtu.be/YND0RUuP-to
-    | **With Screen - Use Raspberry Pi - under Windows PC:** https://youtu.be/HEywFsFrj3I
+**Without Screen - Use Raspberry Pi - under Windows PC:** https://youtu.be/7vA5utwzY0E
+
+.. raw:: html
+
+   <iframe style="display: block; margin: 0 auto;" height="421.875" width="750" src="https://www.youtube.com/embed/7vA5utwzY0E" frameborder="0" allowfullscreen></iframe>
+
+**With Screen - Use Raspberry Pi - under Windows PC:** https://youtu.be/HEywFsFrj3I
+
+.. raw:: html
+
+   <iframe style="display: block; margin: 0 auto;" height="421.875" width="750" src="https://www.youtube.com/embed/HEywFsFrj3I" frameborder="0" allowfullscreen></iframe>
+
 
 Automatically Method
 ================================================================
