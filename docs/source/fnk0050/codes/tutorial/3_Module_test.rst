@@ -2,13 +2,13 @@
 Chapter 3 Module test (Required)
 ##############################################################################
 
-**If you have any concerns, please feel free to contact us at support@freenove.com**
+**If you have any concerns, please feel free to contact us at** support@freenove.com
 
 The robot dog has been assembled in the previous chapter. This chapter will test each module of the robot dog. It is a necessary check for later control.
 
-Before starting, please install the battery for the robot dog and :red:`turn on the S1 and S2 switches.` Place the robot dog with the calibration supports on a horizontal table to ensure that the wiring of each servo is correct.
+Before starting, please install the battery for the robot dog and :combo:`red font-bolder:turn on the S1 and S2 switches.` Place the robot dog with the calibration supports on a horizontal table to ensure that the wiring of each servo is correct.
 
-:red:`Please use VNC Viewer to build this robot when you use remote mode to login RPi,` :blue:`or there will be errors. Because other desktop remote doesn't support GUI.`
+:combo:`red font-bolder:Please use` :ref:`VNC Viewer <VNC_Viewer>` :combo:`red font-bolder:to build this robot when you use remote mode to login RPi,` :combo:`blue font-bolder:or there will be errors. Because other desktop remote doesn't support GUI.`
 
 Servo
 ****************************************************************
@@ -56,7 +56,7 @@ After assembly in the previous chapter, the robot should look as shown in pictur
 
 After servo test program is executed, the robot's posture will change to A, B, C, D gradually, which indicates the servo channel works normally.
 
-If the situation is not correct, check the servo :ref:`wiring`. 
+If the situation is not correct, check the servo :ref:`wiring <wiring>`. 
 
 .. image:: ../_static/imgs/Chapter_3_Module_test/Chapter3_03.png
     :align: center
@@ -229,9 +229,11 @@ If you are using the Led feature for the first time, it will ask for the PCB ver
 Please enter 1 or 2 according to the version number of your connection board.
 
 .. list-table:: 
-    :width: 100%
+    :width: 60%
     :widths: 50 50
     :align: center
+    :header-rows: 1
+    :class: table-line
 
     *   -   Connection board (PCB_V1.0)  
         -   Connection board (PCB_V2.0)
@@ -245,7 +247,7 @@ Please enter 1 or 2 according to the version number of your connection board.
 .. image:: ../_static/imgs/Chapter_3_Module_test/Chapter3_11.png
     :align: center
 
-:red:`If your connection board version is V2.0 and you do not have the SPI feature turned on, the LedPixel will not show the color. Refer here to turn on the SPI.`
+:combo:`red font-bolder:If your connection board version is V2.0 and you do not have the SPI feature turned on, the LedPixel will not show the color. Refer here to turn on the SPI.`
 
 Result
 ================================================================
@@ -263,6 +265,7 @@ The code of test.py is as below:
     :linenos: 
     :language: python
     :lines: 4-30
+    :dedent:
 
 Buzzer
 ****************************************************************
@@ -304,6 +307,7 @@ Code
     :linenos: 
     :language: python
     :lines: 82-97
+    :dedent:
 
 Reference
 ================================================================
@@ -383,4 +387,3 @@ Then please open and check the generated image.jpg under
 
 .. image:: ../_static/imgs/Chapter_3_Module_test/Chapter3_15.png
     :align: center
-

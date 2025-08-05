@@ -1,5 +1,5 @@
 ##############################################################################
-Chapter 1 Software installation and Test (necessary)
+Chapter Software installation and Test (necessary)
 ##############################################################################
 
 **If you have any concerns, please feel free to contact us via support@freenove.com**
@@ -8,13 +8,13 @@ In this chapter, we will make some necessary preparation: start your Pi Raspberr
 
 .. note::   
 
-    1.Please use Raspberry Pi OS with Desktop
+    1. :combo:`red font-bolder:Please use Raspberry Pi OS with Desktop`
     
-    2.The installation of libraries takes much time. You can power Raspberry Pi with a power supply Cable. 
+    2. The installation of libraries takes much time. :combo:`red font-bolder:You can power Raspberry Pi with a power supply Cable.`
     
-    3.If you are using remote desktop to login Raspberry Pi, you need to use VNC viewer.
+    3. If you are using **remote desktop** to login Raspberry Pi, you need to use :ref:`VNC viewer <VNC_Viewer>`.
 
-You can refer to this video. https://www.youtube.com/watch?v=Lq-OERj2WZM 
+:combo:`green font-bolder:You can refer to this video.`
 
 .. raw:: html
 
@@ -94,13 +94,13 @@ If you want to set python2 as default python in **other projects**, just repeat 
 Shortcut Key
 ----------------------------------------------------------------
 
-Now, we will introduce several shortcuts that are very useful and commonly used in terminal.
+Now, we will introduce several shortcuts that are very :combo:`red font-bolder:useful` and :combo:`red font-bolder:commonly used` in terminal.
 
-1. up and down arrow keys. History commands can be quickly brought back by using up and down arrow keys, which are very useful when you need to reuse certain commands.
+1. **up and down arrow keys.** History commands can be quickly brought back by using up and down arrow keys, which are very useful when you need to reuse certain commands.
 
-When you need to type commands, pressing “↑” will go backwards through the history of typed commands, and pressing “↓” will go forwards through the history of typed command.
+**When you need to type commands, pressing “↑” will go backwards through the history of typed commands, and pressing “↓” will go forwards through the command history.**
 
-2. Tab key. The Tab key can automatically complete the command/path you want to type. When there are multiple commands/paths conforming to the already typed letter, pressing Tab key once won’t have any result. And pressing Tab key again will list all the eligible options. This command/path will be completely typed as soon as you press the Tab key when there is only one eligible option.
+2. **Tab key.** The Tab key can automatically complete the command/path you want to type. When there are multiple commands/paths conforming to the already typed letter, pressing Tab key once won’t have any result. And pressing Tab key again will list all the eligible options. This command/path will be completely typed as soon as you press the Tab key when there is only one eligible option.
 
 As shown below, under the '~'directory, enter the Documents directory with the “cd” command. After typing “cd D”, press Tab key, then there is no response. Press Tab key again, then all the files/folders that begin with “D” is listed. Continue to type the character "oc", then press the Tab key, and then “Documents” is completely typed automatically.
 

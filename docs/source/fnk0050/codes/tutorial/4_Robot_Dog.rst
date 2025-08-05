@@ -27,6 +27,7 @@ Part of server code is as below:
     :linenos: 
     :language: python
     :lines: 45-72
+    :dedent:
 
 Reference
 ================================================================
@@ -69,7 +70,7 @@ Open Server
 Step 1 Login Raspberry Pi via VNC viewer 
 ----------------------------------------------------------------
 
-:red:`Because server and client use GUI. You need use VNC viewer as remote desktop way.`
+:combo:`red font-bolder:Because server and client use GUI. You need use VNC viewer as remote desktop way.`
 
 Download and install VNC Viewer according to your computer system by clicking following link:
 
@@ -83,7 +84,7 @@ After installation is completed, open VNC Viewer. And click File -> New Connecti
  
 Enter IP address of your Raspberry Pi and fill in a Name. And click OK.
 
-Then on the VNC Viewer panel, double-click new connection you just created, and the following dialog box pops up. Enter username: :blue:`pi` and Password: :blue:`raspberry`. And click OK.     
+Then on the VNC Viewer panel, double-click new connection you just created, and the following dialog box pops up. Enter username: :combo:`blue font-bolder:pi` and Password: :combo:`blue font-bolder:raspberry`. And click OK.     
 
 .. image:: ../_static/imgs/Chapter_4_Robot_Dog/Chapter4_02.png
     :align: center
@@ -93,7 +94,7 @@ Then on the VNC Viewer panel, double-click new connection you just created, and 
 .. image:: ../_static/imgs/Chapter_4_Robot_Dog/Chapter4_03.png
     :align: center
 
-:red:`If the resolution ratio is not great or there is just a little window, you can set a proper resolution ratio via steps below.`
+:combo:`red font-bolder:If the resolution ratio is not great or there is just a` **little window** :combo:`red font-bolder:, you can set a proper resolution ratio via steps below.`
 
 Select Screen Configuration. Select the appropriate resolution in the new window. Click Apply. 
 
@@ -257,6 +258,7 @@ Part of client code is as below:
     :linenos: 
     :language: python
     :lines: 24-35, 99-122
+    :dedent:
 
 Reference
 ================================================================
@@ -311,15 +313,13 @@ Find the “Client.exe” file in the specified directory, double click it and t
 
 After the client is successfully opened, 
 
-1.You need to open the Raspberry Pi and :ref:`Turn on the server`, 
+1.You need to open the Raspberry Pi and :ref:`Turn on the server <Turn on the server>`, 
 
 2.Enter the Raspberry Pi's IP address in the white IP edit box, 
 
-3.Click "Connect" to connect client to the Raspberry Pi. 
+3.Click "**Connect**" to connect client to the Raspberry Pi. 
 
-After the connection is successful, you need to calibrate the robot in Calibration:ref:`Calibration` section. After the calibration is completed, the robot dog can be controlled to move.
-
-You can refer to this video: https://youtu.be/l2v9PdwQdvY
+After the connection is successful, you need to calibrate the robot in :ref:`Calibration <Calibration>` section. After the calibration is completed, the robot dog can be controlled to move.
 
 .. raw:: html
 
@@ -327,14 +327,14 @@ You can refer to this video: https://youtu.be/l2v9PdwQdvY
 
 .. note::
     
-    :red:`when Raspberry Pi is shut down, server will be closed. You need open server again the next time.`
+    :combo:`red font-bolder:When Raspberry Pi is shut down, server will be closed. You need open server again the next time.`
 
 Option 2 Install python3 and some related python libraries to run client
 --------------------------------------------------------------------------
 
 If you want to modify the client, you can follow this section. 
 
-This section will be completed in your **computer with windows system**, :red:`not Raspberry Pi.`
+This section will be completed in your **computer with windows system**, :combo:`red font-bolder:not Raspberry Pi.`
 
 To run the client on a Windows system, you need to install some software and libraries, which takes some time. During this process, it does not need to run a server and a Raspberry Pi. You can turn off the Raspberry Pi first. After the installation is completed, turn on the Raspberry Pi and the server.
 
@@ -348,7 +348,7 @@ https://www.python.org/downloads/windows/
 .. image:: ../_static/imgs/Chapter_4_Robot_Dog/Chapter4_12.png
     :align: center
 
-Click Latest Python 3 Release - Python 3.8.1 (as an example).
+Click **Latest Python 3 Release** - Python 3.8.1 (as an example).
 
 .. image:: ../_static/imgs/Chapter_4_Robot_Dog/Chapter4_13.png
     :align: center
@@ -395,7 +395,7 @@ You can also place it into other disks (like E), but the path in following comma
 
 Press “win + R” and enter cmd, and click ok. Then enter following commands.
 
-1. Enter D disk. If you put it into E, it should be E:
+1. Enter D disk. If you put it into E, it should be ``E:``
 
 .. code-block:: console
 
@@ -413,13 +413,15 @@ Press “win + R” and enter cmd, and click ok. Then enter following commands.
 
     Python setup_windows.py
  
-Or double-click "setup_windows.py" to execute the installation program, under following path:
+Or double-click "**setup_windows.py**" to execute the installation program, under following path:
 
-**Freenove_Robot_Dog_Kit_for_Raspberry_Pi\Code\** 
+**Freenove_Robot_Dog_Kit_for_Raspberry_Pi\\Code\\** 
 
 Or use python3 to run "setup_windows.py".
 
-:red:`Note: If the default python in your windows system is not python3 but python2, then change all "python" in "setup_windows.py" to "python3" and run the command "setup_windows.py" as shown below.`
+.. note::
+
+    :combo:`red font-bolder:If the default python in your windows system is not python3 but python2, then change all "python" in "setup_windows.py" to "python3" and run the command "setup_windows.py" as shown below.`
 
 .. image:: ../_static/imgs/Chapter_4_Robot_Dog/Chapter4_19.png
     :align: center
@@ -433,7 +435,7 @@ Installation takes some time, please be patient. If all installations are succes
 .. image:: ../_static/imgs/Chapter_4_Robot_Dog/Chapter4_20.png
     :align: center
 
-If some libraries are not installed successfully, it will prompt "Some libraries have not been installed yet. Please run 'python setup_windows.py' again". Then you need to execute the python3 setup_windows.py command again. Most installation failures are caused by a poor network. You can check the network before installing.
+If some libraries are not installed successfully, it will prompt "Some libraries have not been installed yet. Please run '**python setup_windows.py**' again". Then you need to execute the python3 setup_windows.py command again. Most installation failures are caused by a poor network. You can check the network before installing.
 
 Open client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -463,11 +465,13 @@ Press “win + R” and enter cmd, and click ok. Then enter following commands.
 
 Or double-click "Main.py". under following path:
 
-**Freenove_Robot_Dog_Kit_for_Raspberry_Pi\Code\Client**
+**Freenove_Robot_Dog_Kit_for_Raspberry_Pi\\Code\\Client**
 
 Or use python3 to run "Main.py".
 
-:red:`Note: If the default python in your windows system is not python3, then change the command to run Main.py as shown below.`
+.. note::
+
+    :combo:`red font-bolder:If the default python in your windows system is not python3, then change the command to run Main.py as shown below.`
 
 .. code-block:: console
 
@@ -490,7 +494,7 @@ After the connection is successful, you need to calibrate the robot in :ref:`Cal
 
 .. note::
     
-    :red:`when Raspberry Pi is shut down, server will be closed. You need open server again the next time.`
+    :combo:`red font-bolder:When Raspberry Pi is shut down, server will be closed. You need open server again the next time.`
 
 Run Client on macOS system
 ================================================================
@@ -507,9 +511,9 @@ Download installer, link https://www.python.org/downloads/
 
 Click Python 3.8.2.
 
-:x-large:`If your macOS is 11. Like 11.0, please install python 3.9.` 
+:combo:`x-large font-bolder:If your macOS is 11. Like 11.0, please install` :combo:`red x-large font-bolder:python 3.9`:combo:`x-large font-bolder:.`
 
-:x-large:`If your macOS is NOT 11, like 10.15, please install python 3.8. If you have installed python 3.9. You need uninstall it first.`
+:combo:`x-large font-bolder:If your macOS is NOT 11, like 10.15, please install` :combo:`red x-large font-bolder:python 3.8`:combo:`x-large font-bolder:.` :combo:`purple x-large font-bolder:If you have installed python 3.9. You need uninstall it first.`
 
 .. image:: ../_static/imgs/Chapter_4_Robot_Dog/Chapter4_24.png
     :align: center
@@ -592,9 +596,9 @@ Installation takes some time, please wait patiently.
 
 If some libraries are not installed successfully, it will prompt "Some libraries have not been installed yet. Please run 'python3 setup_windows.py' again". Then you need to execute the python3 setup_windows.py command again. Most installation failures are caused by a poor network. You can check the network before installing.
 
-If you are using :blue:`macOS under 11.0, like 10.15`. Just skip to “Open client”. 
+If you are using :combo:`blue font-bolder:macOS under 11.0, like 10.15`. :combo:`font-bolder:Just skip to “Open client”.` 
 
-If you are using :blue:`macOS 11.0 or later version`. Please run commands below:
+If you are using :combo:`blue font-bolder:macOS 11.0 or later version`. Please run commands below:
 
 .. code-block:: console
 
@@ -636,7 +640,7 @@ Then you need calibrate the robot in the Calibration section. After the :ref:`ca
 
 .. note::
     
-    :red:`when Raspberry Pi is shut down, server will be closed. You need open server again the next time.`
+    :combo:`red font-bolder:When Raspberry Pi is shut down, server will be closed. You need open server again the next time.`
 
 Run client on Raspberry Pi(Linux) system
 ================================================================
@@ -686,18 +690,16 @@ After the connection is successful, you need to calibrate the four legs of the r
 
 .. note::
     
-    :red:`when Raspberry Pi is shut down, server will be closed. You need open server again the next time.`
+    :combo:`red font-bolder:when Raspberry Pi is shut down, server will be closed. You need open server again the next time.`
 
 .. _calibration:
 
 Calibration
 ================================================================
 
-You can refer to this video: https://youtu.be/lv9PdwQdvY2
-
 .. raw:: html
 
-   <iframe style="display: block; margin: 0 auto;" height="421.875" width="750" src="https://www.youtube.com/embed/lv9PdwQdvY2" frameborder="0" allowfullscreen></iframe>
+   <iframe style="display: block; margin: 0 auto;" height="421.875" width="750" src="https://www.youtube.com/embed/l2v9PdwQdvY" frameborder="0" allowfullscreen></iframe>
 
 Calibrate the robot.
 
@@ -722,11 +724,11 @@ Calibrate the robot.
 
 .. note:: 
 
-    :red:`1.It is best to have the robot dog walk on a flat hard floor. The robot dog may not walk well on other grounds.`
+    :combo:`red font-bolder:1.It is best to have the robot dog walk on a flat hard floor. The robot dog may not walk well on other grounds.`
     
-    :red:`2.There is an offset when controlling the robot dog to walk straightly, which is normal. It is caused by the installation error and the error of the servo itself. As a result, the left and right legs cannot be completely symmetrical, and may differ by 1mm or 2mm. As the walking distance accumulates, this error is constantly superimposed. Then there will be a large offset from the original position.`
+    :combo:`red font-bolder:2.There is an offset when controlling the robot dog to walk straightly, which is normal.` It is caused by the installation error and the error of the servo itself. As a result, the left and right legs cannot be completely symmetrical, and may differ by 1mm or 2mm. As the walking distance accumulates, this error is constantly superimposed. Then there will be a large offset from the original position.
     
-    :red:`3.If the calibration is not good enough, it will affect walking. You can recalibrate the robot with same steps.`
+    :combo:`red font-bolder:3.If the calibration is not good enough, it will affect walking. You can recalibrate the robot with same steps.`
 
 Control
 ================================================================
@@ -738,7 +740,7 @@ After calibrating successfully, you can control the robot dog to move.
 
 **Relax mode:**
 
-a)	When the robot dog moves for 3 minutes at a time, it will feel tired (the servo will get hot).  In order to protect the servo, the robot will get into relax mode for 1 minute. During this time, it won’t respond to any motion command. You can still use the functions of LED, buzzer, real-time video and so on. 
+a)	When the robot dog moves for 3 minutes at a time, it will feel tired (the servo will get hot).  In order to protect the servo, the robot will get into relax mode for 1 minute. **During this time, it won't respond to any motion command.** You can still use the functions of LED, buzzer, real-time video and so on. 
 
 b)	When the robot dog moves for less than3 minutes and rests for 1 minute. The timer will start from 0. Then the robot can move for 3 minutes again.
 
@@ -752,10 +754,10 @@ You can click and drag the cross cursor in the coordinate system to adjust the y
 The following is the corresponding operation of the buttons and keyboards.
 
 .. list-table:: 
-    :width: 100%
     :widths: 50 20 70
     :align: center
     :header-rows: 1
+    :class: zebra
 
     *   -   Button on Client
         -   Key
@@ -847,10 +849,10 @@ Input images of human faces and recognize them.
 The function of SliderBar is below:
 
 .. list-table:: 
-    :width: 100%
     :widths: 40 70
     :align: center
     :header-rows: 1
+    :class: zebra
 
     *   -   SliderBar
         -   Function
@@ -951,10 +953,11 @@ Some important functions included in the py files are listed below. If you want 
 ADS7830.py
 
 .. list-table:: 
-    :width: 100%
-    :widths: 40 70
+    :width: 70%
+    :widths: 35 70
     :align: center
     :header-rows: 1
+    :class: zebra
 
     *   -   Function
         -   Description
@@ -965,10 +968,11 @@ ADS7830.py
 Buzzer.py
 
 .. list-table:: 
-    :width: 100%
-    :widths: 20 70
+    :width: 70%
+    :widths: 35 70
     :align: center
     :header-rows: 1
+    :class: zebra
 
     *   -   Function
         -   Description
@@ -979,10 +983,11 @@ Buzzer.py
 Contorl.py
 
 .. list-table:: 
-    :width: 100%
-    :widths: 15 70
+    :width: 70%
+    :widths: 35 70
     :align: center
     :header-rows: 1
+    :class: zebra
 
     *   -   Function
         -   Description
@@ -1034,10 +1039,11 @@ Contorl.py
 IMU.py
 
 .. list-table:: 
-    :width: 100%
-    :widths: 20 70
+    :width: 70%
+    :widths: 35 70
     :align: center
     :header-rows: 1
+    :class: zebra
 
     *   -   Function
         -   Description
@@ -1048,10 +1054,11 @@ IMU.py
 Led.py
 
 .. list-table:: 
-    :width: 100%
-    :widths: 20 70
+    :width: 70%
+    :widths: 35 70
     :align: center
     :header-rows: 1
+    :class: zebra
 
     *   -   Function
         -   Description
@@ -1101,10 +1108,11 @@ Led.py
 Servo.py
 
 .. list-table:: 
-    :width: 100%
-    :widths: 20 70
+    :width: 70%
+    :widths: 35 70
     :align: center
     :header-rows: 1
+    :class: zebra
 
     *   -   Function
         -   Description
@@ -1115,10 +1123,11 @@ Servo.py
 Ultrasonic.py
 
 .. list-table:: 
-    :width: 100%
-    :widths: 20 70
+    :width: 70%
+    :widths: 35 70
     :align: center
     :header-rows: 1
+    :class: zebra
 
     *   -   Function
         -   Description
@@ -1137,7 +1146,7 @@ We have also customized some specific actions, such as push-up, greeting, etc. Y
 Android and iOS app
 ****************************************************************
 
-You can download and install the Freenove Android app from below links:
+You can download and install the Freenove **Android app** from below links:
 
 On Google play:
 
@@ -1157,18 +1166,17 @@ You can download and install the Freenove **iOS app** by searching **freenove** 
 
 **Relax mode**
 
-a)	When the robot dog moves for 3 minutes in total, it will feel tired (the servo will get hot).  In order to protect the servo, the robot will get into relax mode for 1 minute. During this time, it won't respond to motion command. You can still use the functions of LED, buzzer, real-time video and so on. 
+a)	When the robot dog moves for 3 minutes in total, it will feel tired (the servo will get hot).  In order to protect the servo, the robot will get into relax mode for 1 minute. **During this time, it won't respond to motion command.** You can still use the functions of LED, buzzer, real-time video and so on. 
 
-b)	When the robot dog moves for <3 minutes and then the robot rest for 1 minute. The timer will start from 0. Then the robot can move for 3 minutes again.
+b)	When the robot dog moves for < 3 minutes and then the robot rest for 1 minute. The timer will start from 0. Then the robot can move for 3 minutes again.
 
 c)	If the robot isn't tired and is standing, when the robot does not receive motion command for 10s, it will get into relax mode. In this situation, it will responds to any commands.
 
-The followings are the features of this app. 
+**The followings are the features of this app.** 
 
-First, you need to turn on the :ref:`Server<Turn on the server>`. Then enter your raspberry pi IP address and click connect icon. 
+**First, you need to turn on the** :ref:`Server<Turn on the server>`. **Then enter your raspberry pi IP address and click connect icon.**
 
 On the top of the interface, there is a timer slider to indicate the time for moving or resting.
 
 .. image:: ../_static/imgs/Chapter_4_Robot_Dog/Chapter4_51.png
     :align: center
-

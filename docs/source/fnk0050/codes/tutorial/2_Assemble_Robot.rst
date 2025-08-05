@@ -6,7 +6,7 @@ If you have any concerns, please feel free to contact us at support@freenove.com
 
 It is recommended to assemble and use the robot dog according to the tutorial. Otherwise, there may be installation errors, device damage, etc. 
 
-:red:`Don't reverse batteries. Or the board will be damaged.`
+:combo:`red font-bolder:Don't reverse batteries. Or the board will be damaged.`
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_00.png
     :align: center
@@ -26,7 +26,7 @@ Please use the 2 pairs of holes with longer distance.
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_02.png
     :align: center
 
-M1.2*7 screws are contained in following plastic bag. :red:`If a package of M1.2*7 self-tapping screws cannot be found, it may be packed in the servo package.`
+M1.2*7 screws are contained in following plastic bag. :combo:`red font-bolder:If a package of M1.2*7 self-tapping screws cannot be found, it may be packed in the servo package.`
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_03.png
     :align: center
@@ -83,7 +83,7 @@ Step 4 Install MPU6050
 
 .. note:: 
 
-    There are two rows of headers. Plug the MPU6050 into the outer Row. 
+    :combo:`red font-bolder:There are two rows of headers. Plug the MPU6050 into the outer Row.`
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_13.png
     :align: center
@@ -125,12 +125,14 @@ Install connector to connect Raspberry Pi and shield.
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_19.png
     :align: center
 
-:red:`We have two types of connection boards, but they are installed in the same way.`
+:combo:`red font-bolder:We have two types of connection boards, but they are installed in the same way.`
 
 .. list-table:: 
-    :width: 100%
+    :width: 60%
     :widths: 50 50
     :align: center
+    :header-rows: 1
+    :class: table-line
 
     *   -   Connection board (PCB_V1.0)  
         -   Connection board (PCB_V2.0)
@@ -168,7 +170,7 @@ Step 8 Install Servo to Acrylic Board
 
 .. note:: 
 
-    :red:`There are four parts. They are different.`
+    :combo:`red font-bolder:There are four parts. They are different.`
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_24.png
     :align: center
@@ -197,7 +199,7 @@ Assemble another two parts.
 
 .. note::
     
-    :red:`they are different from parts above.`
+    :combo:`red font-bolder:they are different from parts above.`
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_29.png
     :align: center
@@ -206,7 +208,7 @@ Assemble another two parts.
 
 .. note::
     
-    :red:`they are different from parts above.`
+    :combo:`red font-bolder:they are different from parts above.`
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_30.png
     :align: center
@@ -220,7 +222,7 @@ Now you will get four parts as below.
 
 .. note::
     
-    :red:`they are different.`
+    :combo:`red font-bolder:they are different.`
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_32.png
     :align: center
@@ -228,17 +230,17 @@ Now you will get four parts as below.
 Step 9 Run Servo Program (Necessary)
 ****************************************************************
 
-Connect All 12 black servos and 1 blue servo to servo port Randomly. And install batteries. Push batteries to “+” ends.
+Connect :combo:`red font-bolder:All` 12 **black** servos and 1 :combo:`blue font-bolder:blue` servo to servo port :combo:`red font-bolder:Randomly`. And install batteries. Push batteries to “+” ends.
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_33.png
     :align: center
 
-You can still use cable to power Raspberry Pi with switches ON. If you disconnect cable, the batteries will power Raspberry Pi. Press S1 and S2 and there will be two indicators ON. 
+**You can still use cable to power Raspberry Pi** with switches ON. If you disconnect cable, the batteries will power Raspberry Pi. Press **S1 and S2** and there will be two indicators ON. 
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_34.png
     :align: center
 
-Turn on the Raspberry Pi. Make sure all three steps in Chapter 1 have been performed correctly. If you haven’t done that, please perform the steps in Chapter 1 first.
+Turn on the Raspberry Pi. Make sure all three steps in :combo:`red font-bolder:Chapter 1` have been performed correctly. If you haven't done that, please perform the steps in :combo:`red font-bolder:Chapter 1 first`.
 
 a.	Type the following command to enter servo code folder “Server”.
 
@@ -254,9 +256,9 @@ b.	Run Servo.py
 
 After running the program, all servos will keep at 90°.
 
-Next we will connect the servos to disk arm. 
+**Next we will connect the servos to disk arm.** 
 
-Keep the power on and all servos connected during the assembly. Don't disconnect servos. 
+:combo:`red font-bolder:Keep the power on and all servos connected during the assembly. Don't disconnect servos.` 
 
 https://www.youtube.com/watch?v=7GkMYdVrong 
 
@@ -264,19 +266,19 @@ https://www.youtube.com/watch?v=7GkMYdVrong
 
    <iframe style="display: block; margin: 0 auto;" height="421.875" width="750" src="https://www.youtube.com/embed/7GkMYdVrong" frameborder="0" allowfullscreen></iframe>
 
-When running the code, if it reports “Remote I/O error”, please check the following three aspects:  
+**When running the code, if it reports “Remote I/O error”, please check the following three aspects:**
 
-1.	Whether the connector is connected well 
+**1. Whether the connector is connected well**
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_35.png
     :align: center
 
-2.	Whether both S1 and S2 are turned ON
+**2. Whether both S1 and S2 are turned ON**
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_36.png
     :align: center
 
-3.	Whether the batteries are contacted well with the battery holder
+**3. Whether the batteries are contacted well with the battery holder**
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_37.png
     :align: center
@@ -286,7 +288,7 @@ When running the code, if it reports “Remote I/O error”, please check the fo
 Step 10 Assemble Legs to Body
 ****************************************************************
 
-:red:`Keep the power ON and all servos connected to shield. Do NOT disconnect wiring.` We need to keep the servo at 90° when connected to them to servo arms. (servo wires are not shown in the following content.)
+:combo:`red font-bolder:Keep the power ON and all servos connected to shield. Do NOT disconnect wiring.` We need to keep the servo at 90° when connected to them to servo arms. (servo wires are not shown in the following content.)
 
 Try to install them close to 90°. The angles are acceptable within 65~115.
 
@@ -303,14 +305,14 @@ Assemble legs of the other side.
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_40.png
     :align: center
 
-:red:`Keep the power ON and all servos connected to shield. Do NOT disconnect wiring.`
+:combo:`red font-bolder:Keep the power ON and all servos connected to shield. Do NOT disconnect wiring.`
 
 Select two legs of different sides as rear legs. And install them as below. Then install the servo screws.
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_41.png
     :align: center
 
-:red:`In this step, if you did not cover tape to the holes before, you can turn off Load S1 to install the screw. After the screw is installed, turn on the Load S1.`
+:combo:`red font-bolder:In this step, if you did not cover tape to the holes before, you can turn off Load S1 to install the screw. After the screw is installed, turn on the Load S1.`
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_42.png
     :align: center
@@ -320,7 +322,7 @@ Select two legs of different sides as rear legs. And install them as below. Then
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_43.png
     :align: center
 
-:red:`Keep the power ON and all servos connected to shield. Do NOT disconnect wiring.`
+:combo:`red font-bolder:Keep the power ON and all servos connected to shield. Do NOT disconnect wiring.`
 
 Assemble front legs and install the servo screw.
 
@@ -332,7 +334,7 @@ Assemble them.
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_45.png
     :align: center
 
-:red:`In this step, if you did not cover tape to the holes before, you can turn off Load S1 to install the screw. After the screw is installed, turn on the Load S1.`
+:combo:`red font-bolder:In this step, if you did not cover tape to the holes before, you can turn off Load S1 to install the screw. After the screw is installed, turn on the Load S1.`
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_46.png
     :align: center
@@ -368,7 +370,7 @@ Step 12 Assemble Head to Body
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_51.png
     :align: center
 
-:red:`Keep the power ON and servos connected when installing arm to servo. `
+:combo:`red font-bolder:Keep the power ON and servos connected when installing arm to servo. `
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_52.png
     :align: center
@@ -378,7 +380,7 @@ Step 12 Assemble Head to Body
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_53.png
     :align: center
 
-:red:`We will complete wiring in next section. Shut down the Raspberry Pi first. Do NOT turn on Raspberry Pi until chapter 3.`
+:combo:`red font-bolder:We will complete wiring in next section. Shut down the Raspberry Pi first. Do NOT turn on Raspberry Pi until chapter 3.`
 
 |
 
@@ -387,15 +389,16 @@ Step 12 Assemble Head to Body
 Step 13 Wiring
 ****************************************************************
 
-Connect servos according to the numbers. :red:`Note servo ports 0, 1, 14 are not connected to servo.` They are spare. 
+Connect servos according to the numbers. :combo:`red font-bolder:Note servo ports 0, 1, 14 are not connected to servo.` They are spare. 
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_54.png
     :align: center
 
-Wiring of Ultrasonic module 
+Wiring of Ultrasonic module
+
 .. note::
     
-    :red:`Do NOT connect wrongly. If you connect 5V to GND, it may damage the ultrasonic module`
+    :combo:`red font-bolder:Do NOT connect wrongly. If you connect 5V to GND, it may damage the ultrasonic module`
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_55.png
     :align: center
@@ -405,16 +408,16 @@ Wiring of Ultrasonic module
 Camera for Pi3/4
 ================================================================
 
-:red:`Pay attention to the blue side of camera cable.`
+:combo:`red font-bolder:Pay attention to the` :combo:`blue font-bolder:blue side` :combo:`red font-bolder:of camera cable.`
 
 .. note:: 
 
-    :blue:`plugging and unplugging the cable requires the Raspberry Pi to be powered off, otherwise the camera module may be burned.`
+    :combo:`bg-blue font-bolder:plugging and unplugging the cable requires the Raspberry Pi to be powered off, otherwise the camera module may be burned.`
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_56.png
     :align: center
 
-:red:`Pay attention to the blue side of camera cable.`
+:combo:`red font-bolder:Pay attention to the` :combo:`blue font-bolder:blue side` :combo:`red font-bolder:of camera cable.`
 
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_57.png
     :align: center
@@ -468,4 +471,4 @@ The robot should show the following posture.
 .. image:: ../_static/imgs/Chapter_2_Assemble_Robot/Chapter2_61.png
     :align: center
 
-**If it does not look like this, you need to disassemble servo screws of incorrect servos. Then reassemble the incorrect servo to make the robot look like posture above.**
+**If it does not look like this, you need to disassemble** :combo:`red font-bolder:servo screws` **of incorrect servos. Then reassemble the incorrect servo to make the robot look like posture above.**

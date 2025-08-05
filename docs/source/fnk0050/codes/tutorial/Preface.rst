@@ -26,8 +26,9 @@ The A type and B type versions of the first generation products have been discon
 Below are the raspberry pi pictures and model pictures supported by this product. They have 40 pins.
 
 .. list-table:: 
-    :width: 100%
+    :width: 80%
     :align: center
+    :class: table-line
 
     *   -   Practicality picture of Raspberry Pi 5:
         -   Model diagram of Raspberry Pi 5:
@@ -132,10 +133,7 @@ Each pin's functional assignment is defined in the image below:
 
     .. image:: ../_static/imgs/Preface/Preface25.png
         :align: center
-
-    .. image:: ../_static/imgs/Preface/Preface26.png
-        :align: center
-
+    
 .. seealso:: 
     For more details about pin definition of GPIO, please refer to `<http://pinout.xyz/>`_
 
@@ -143,14 +141,14 @@ PHYSICAL Numbering
 ---------------------------------------------------------------
 Another way to refer to the pins is by simply counting across and down from pin 1 at the top left (nearest to the SD card). This is 'Physical Numbering', as shown below:
 
-.. image:: ../_static/imgs/Preface/Preface27.png
+.. image:: ../_static/imgs/Preface/Preface26.png
     :align: center
 
 WiringPi GPIO Numbering
 ---------------------------------------------------------------
 Different from the previous two types of GPIO serial numbers, RPi GPIO serial number of the WiringPi are numbered according to the BCM chip use in RPi.
 
-.. image:: ../_static/imgs/Preface/Preface28.png
+.. image:: ../_static/imgs/Preface/Preface27.png
     :align: center
 
 .. seealso:: 
@@ -161,6 +159,9 @@ You can also use the following command to view their correlation.
 .. code-block:: console
 
     $ gpio readall
+
+.. image:: ../_static/imgs/Preface/Preface28.png
+    :align: center
 
 .. seealso:: 
 
