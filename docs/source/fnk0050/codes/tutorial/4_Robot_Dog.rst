@@ -642,56 +642,6 @@ Then you need calibrate the robot in the Calibration section. After the :ref:`ca
     
     :combo:`red font-bolder:When Raspberry Pi is shut down, server will be closed. You need open server again the next time.`
 
-Run client on Raspberry Pi(Linux) system
-================================================================
-
-Install openCv library
-----------------------------------------------------------------
-
-Execute following 3 commands in turn.
-
-.. code-block:: console
-
-    $ sudo apt-get install -y libopencv-dev python3-opencv
-    $ sudo pip3 install opencv-contrib-python
-    $ sudo apt-get install -y libatlas-base-dev libjasper-dev
-
-Open client
-----------------------------------------------------------------
-
-Enter the following commands at the terminal.
-
-1.	Use the cd command to go to the directory where Main.py is located.
-
-.. code-block:: console
-
-    $ cd ~/Freenove_Robot_Dog_Kit_for_Raspberry_Pi/Code/Client
-
-2.	Run Main.py:
-
-.. code-block:: console
-
-    $ sudo python Main.py
-
-The interface is shown below. The face recognition cannot work well because it need more computing power than Raspberry Pi has.
-
-.. image:: ../_static/imgs/Chapter_4_Robot_Dog/Chapter4_35.png
-    :align: center
-
-After the client is successfully opened, 
-
-1.You need to open the Raspberry Pi and :ref:`Turn on the server`, 
-
-2.Enter the Raspberry Pi's IP address in the white IP edit box, 
-
-3.Click "Connect" to connect client to the Raspberry Pi. 
-
-After the connection is successful, you need to calibrate the four legs of the robot dog in :ref:`calibration` section. After the calibration is completed, the robot dog can be controlled to move.
-
-.. note::
-    
-    :combo:`red font-bolder:when Raspberry Pi is shut down, server will be closed. You need open server again the next time.`
-
 .. _calibration:
 
 Calibration
