@@ -25,7 +25,6 @@ Machinery Parts
 
 .. list-table:: 
     :align: center
-    :class: table-line
 
     *   -   |List02|
         -   |List03|
@@ -48,6 +47,10 @@ Machinery Parts
 .. |List08| image:: ../_static/imgs/List/List08.png
 .. |List09| image:: ../_static/imgs/List/List09.png
 .. |List10| image:: ../_static/imgs/List/List10.png
+
+.. note::
+    
+    M1.2*7 screws are contained in following plastic bag. :combo:`red font-bolder:If a package of M1.2*7 self-tapping screws cannot be found, it may be packed in the servo package.`   
 
 Transmission Parts
 ****************************************************************
