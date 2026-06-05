@@ -49,27 +49,52 @@ class Server:
                                             struct.pack('256s',b'wlan0'[:15])
                                             )[20:24])
     def turn_on_server(self):
-        #ip adress
-        HOST=self.get_interface_ip()
+        # Multi-Client-Patch: Bindung auf 0.0.0.0 (alle Interfaces inkl. Tailscale)
+        # und listen(8) statt listen(1) auf Port 5001. Video bleibt single-client.
+        HOST = '0.0.0.0'
+        try:
+            iface_ip = self.get_interface_ip()
+        except Exception:
+            iface_ip = '?'
         #Port 8001 for video transmission
         self.server_socket = socket.socket()
         self.server_socket.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEPORT,1)
-        self.server_socket.bind((HOST, 8001))              
+        self.server_socket.bind((HOST, 8001))
         self.server_socket.listen(1)
-        
-        #Port 5001 is used for instruction sending and receiving
+
+        #Port 5001 is used for instruction sending and receiving (multi-client)
         self.server_socket1 = socket.socket()
         self.server_socket1.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEPORT,1)
         self.server_socket1.bind((HOST, 5001))
-        self.server_socket1.listen(1)
-        print('Server address: '+HOST)
+        self.server_socket1.listen(8)
+        self.server_socket1.settimeout(1.0)  # accept-Loop kann tcp_flag pollen
+
+        # Set fuer alle aktiven Instruction-Connections (multi-client)
+        self._instr_clients = set()
+        self._instr_clients_lock = threading.Lock()
+
+        print(f'Server address: {iface_ip} (binding 0.0.0.0:5001 multi-client, 0.0.0.0:8001 video)')
         
     def turn_off_server(self):
         try:
             self.connection.close()
-            self.connection1.close()
-        except :
-            print ('\n'+"No client connection")
+        except Exception:
+            pass
+        # Multi-Client: alle aktiven Instruction-Connections schliessen
+        try:
+            with self._instr_clients_lock:
+                for c in list(self._instr_clients):
+                    try:
+                        c.close()
+                    except Exception:
+                        pass
+                self._instr_clients.clear()
+        except Exception:
+            pass
+        try:
+            self.server_socket1.close()
+        except Exception:
+            pass
     
     def reset_server(self):
         self.turn_off_server()
@@ -139,87 +164,108 @@ class Server:
             self.control.move_flag= 2  
                   
     def receive_instruction(self):
-        try:
-            self.connection1,self.client_address1 = self.server_socket1.accept()
-            print ("Client connection successful !")
-        except:
-            print ("Client connect failed")
-        self.server_socket1.close()
-        while True:
+        """Multi-Client Accept-Loop. Pro eingehender Connection wird ein
+        Handler-Thread gestartet. Bleibt aktiv bis tcp_flag=False oder
+        server_socket1 geschlossen wird."""
+        print("instruction accept-loop on 0.0.0.0:5001 (multi-client)")
+        while self.tcp_flag:
             try:
-                allData=self.connection1.recv(1024).decode('utf-8')
-                #print(allData)
-            except:
-                if self.tcp_flag:
-                    if max(self.battery_voltage) > 6.4:
-                        self.reset_server()
-                    break
-                else:
-                    break
-            
-            if allData=="" and self.tcp_flag:
-                self.reset_server()
-                break
-            else:
-                cmdArray=allData.split('\n')
-                #print(cmdArray)
-                if cmdArray[-1] !="":
-                    cmdArray==cmdArray[:-1]
-            
-            for oneCmd in cmdArray:
-                data=oneCmd.split("#")
-                if data==None or data[0]=='':
-                    continue
-                elif cmd.CMD_BUZZER in data:
-                    self.buzzer.run(data[1])
-                elif cmd.CMD_LED in data:
-                    try:
-                        stop_thread(thread_led)
-                    except:
-                        pass
-                    thread_led=threading.Thread(target=self.led.light,args=(data,))
-                    thread_led.start()   
-                elif cmd.CMD_LED_MOD in data:
-                    try:
-                        stop_thread(thread_led)
-                    except:
-                        pass
-                    thread_led=threading.Thread(target=self.led.light,args=(data,))
-                    thread_led.start()
-                elif cmd.CMD_HEAD in data:
-                    self.servo.setServoAngle(15,int(data[1]))
-                elif cmd.CMD_SONIC in data:
-                    command=cmd.CMD_SONIC+'#'+str(self.sonic.get_distance())+"\n"
-                    self.send_data(self.connection1,command)
-                elif cmd.CMD_POWER in data:
-                    self.measuring_voltage(self.connection1)
-                elif cmd.CMD_WORKING_TIME in data: 
-                    if self.control.move_timeout!=0 and self.control.relax_flag==True:
-                        if self.control.move_count > self.control.run_time_limit:
-                            command=cmd.CMD_WORKING_TIME+'#'+str(self.control.run_time_limit)+'#'+str(round(self.control.move_count-self.control.run_time_limit))+"\n"
-                        else:
-                            if self.control.move_count==0:
-                                command=cmd.CMD_WORKING_TIME+'#'+str(round(self.control.move_count))+'#'+str(round((time.time()-self.control.move_timeout)+60))+"\n"
-                            else:
-                                command=cmd.CMD_WORKING_TIME+'#'+str(round(self.control.move_count))+'#'+str(round(time.time()-self.control.move_timeout))+"\n"
-                    else:
-                        command=cmd.CMD_WORKING_TIME+'#'+str(round(self.control.move_count))+'#'+str(0)+"\n"
-                    self.send_data(self.connection1,command)
-                else:
-                    self.control.order=data
-                    self.control.timeout=time.time()
+                conn, addr = self.server_socket1.accept()
+            except socket.timeout:
+                continue
+            except OSError:
+                break  # listen socket geschlossen
+            print(f"client connect: {addr}")
+            with self._instr_clients_lock:
+                self._instr_clients.add(conn)
+            # Legacy: self.connection1 = juengste Connection (fuer sednRelaxFlag-Broadcast)
+            self.connection1 = conn
+            self.client_address1 = addr
+            t = threading.Thread(
+                target=self._handle_instruction_client,
+                args=(conn, addr),
+                daemon=True,
+            )
+            t.start()
+        print("instruction accept-loop end")
 
-        try:    
-            stop_thread(thread_power)
-        except:
-            pass
-        try:    
-            stop_thread(thread_led)
-        except:
-            pass
-        print("close_recv")
-        self.control.relax_flag=False
-        self.control.order[0]=cmd.CMD_RELAX
+    def _handle_instruction_client(self, conn, addr):
+        """Per-Client-Handler. Liest Befehle bis Disconnect, dispatcht in den
+        gemeinsamen Control-State. Bei Disconnect: NUR Connection schliessen,
+        KEIN automatisches CMD_RELAX (das wuerde anderen Clients den Walk killen).
+        Auto-Relax greift weiterhin nach 10s ohne Befehle ueber Control.condition()."""
+        thread_led = None
+        try:
+            while self.tcp_flag:
+                try:
+                    allData = conn.recv(1024).decode('utf-8')
+                except Exception:
+                    break
+                if allData == "":
+                    break
+                cmdArray = allData.split('\n')
+                if cmdArray and cmdArray[-1] != "":
+                    cmdArray = cmdArray[:-1]
+                for oneCmd in cmdArray:
+                    data = oneCmd.split("#")
+                    if data is None or data[0] == '':
+                        continue
+                    elif cmd.CMD_BUZZER in data:
+                        self.buzzer.run(data[1])
+                    elif cmd.CMD_LED in data:
+                        try:
+                            if thread_led is not None:
+                                stop_thread(thread_led)
+                        except Exception:
+                            pass
+                        thread_led = threading.Thread(target=self.led.light, args=(data,))
+                        thread_led.start()
+                    elif cmd.CMD_LED_MOD in data:
+                        try:
+                            if thread_led is not None:
+                                stop_thread(thread_led)
+                        except Exception:
+                            pass
+                        thread_led = threading.Thread(target=self.led.light, args=(data,))
+                        thread_led.start()
+                    elif cmd.CMD_HEAD in data:
+                        self.servo.setServoAngle(15, int(data[1]))
+                    elif cmd.CMD_SONIC in data:
+                        response = cmd.CMD_SONIC + '#' + str(self.sonic.get_distance()) + "\n"
+                        self.send_data(conn, response)
+                    elif cmd.CMD_POWER in data:
+                        self.measuring_voltage(conn)
+                    elif cmd.CMD_WORKING_TIME in data:
+                        if self.control.move_timeout != 0 and self.control.relax_flag == True:
+                            if self.control.move_count > self.control.run_time_limit:
+                                command = cmd.CMD_WORKING_TIME + '#' + str(self.control.run_time_limit) + '#' + str(round(self.control.move_count - self.control.run_time_limit)) + "\n"
+                            else:
+                                if self.control.move_count == 0:
+                                    command = cmd.CMD_WORKING_TIME + '#' + str(round(self.control.move_count)) + '#' + str(round((time.time() - self.control.move_timeout) + 60)) + "\n"
+                                else:
+                                    command = cmd.CMD_WORKING_TIME + '#' + str(round(self.control.move_count)) + '#' + str(round(time.time() - self.control.move_timeout)) + "\n"
+                        else:
+                            command = cmd.CMD_WORKING_TIME + '#' + str(round(self.control.move_count)) + '#' + str(0) + "\n"
+                        self.send_data(conn, command)
+                    else:
+                        self.control.order = data
+                        self.control.timeout = time.time()
+        finally:
+            with self._instr_clients_lock:
+                self._instr_clients.discard(conn)
+            try:
+                if thread_led is not None:
+                    stop_thread(thread_led)
+            except Exception:
+                pass
+            try:
+                conn.close()
+            except Exception:
+                pass
+            print(f"client disconnect: {addr}")
+            # WICHTIG: KEIN CMD_RELAX hier — wuerde andere Clients
+            # mit aktivem Walking abrasieren. Auto-Relax laeuft via
+            # Control.condition() nach 10s Inaktivitaet auf self.control.order.
         
 
 if __name__ == '__main__':

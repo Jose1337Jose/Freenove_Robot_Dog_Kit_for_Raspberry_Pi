@@ -1,12 +1,22 @@
 #coding:utf-8
 from PCA9685 import PCA9685
-import time 
+import time
+import atexit
 class Servo:
     def __init__(self):
         self.angleMin=18
         self.angleMax=162
-        self.pwm = PCA9685(address=0x40, debug=True)   
+        self.pwm = PCA9685(address=0x40, debug=True)
         self.pwm.setPWMFreq(50)               # Set the cycle frequency of PWM
+        # Issue #32 fix: bei Skript-Exit alle 16 PWM-Kanaele auf 0 setzen,
+        # sonst bleiben Servos unter Holding-Current und klacken/heizen sich tot.
+        atexit.register(self._shutdown_pwm)
+    def _shutdown_pwm(self):
+        try:
+            for ch in range(16):
+                self.pwm.setPWM(ch, 0, 0)
+        except Exception:
+            pass
     #Convert the input angle to the value of pca9685
     def map(self,value,fromLow,fromHigh,toLow,toHigh):
         return (toHigh-toLow)*(value-fromLow) / (fromHigh-fromLow) + toLow

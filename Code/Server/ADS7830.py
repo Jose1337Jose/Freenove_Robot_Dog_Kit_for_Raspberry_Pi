@@ -19,6 +19,10 @@ class ADS7830:
 		for i in range(9):
 			data[i]=self.readAdc(channel)
 		data.sort()
+		# Issue #21: Spannungsteiler-Faktor variiert je PCB-Revision (V1=*2, manche
+		# Revisionen *3). Wir lassen *2 stehen, weil Server-Default unter 6.4 V abschaltet
+		# und unsere Messungen mit Murata VTC6 2S2P plausibel waren. Falls bei vollem
+		# Akku < 8.0 V angezeigt wird → Multimeter pruefen + Faktor anpassen.
 		battery_voltage=data[4]/255.0*5.0*2
 		return battery_voltage
 if __name__ == '__main__':
